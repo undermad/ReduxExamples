@@ -1,0 +1,184 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+/* Section styles */
+section {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Article styles */
+article {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+article:hover {
+    background: #e9f5ff;
+    border-color: #87ceeb;
+    transform: translateY(-3px);
+}
+
+article h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+article p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        padding: 1rem;
+    }
+
+    article h3 {
+        font-size: 1.3rem;
+    }
+
+    article p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Form container styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+form label {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+/* Input and textarea styling */
+form input,
+form textarea {
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #87ceeb;
+    box-shadow: 0 0 5px rgba(135, 206, 235, 0.7);
+}
+
+/* Textarea specifics */
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Button styling */
+form button {
+    background-color: #87ceeb;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #5aa3c2;
+    transform: scale(1.05);
+}
+
+form button:active {
+    background-color: #3b82a0;
+    transform: scale(1);
+}
+
+form label {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+/* Select dropdown styling */
+form select {
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Focus effect for the dropdown */
+form select:focus {
+    border-color: #87ceeb;
+    box-shadow: 0 0 5px rgba(135, 206, 235, 0.7);
+}
+
+/* Add some space below select */
+form select:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+/* Style for dropdown options */
+form option {
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+}
+
+form button:disabled {
+    background-color: #d3d3d3;
+    color: #a0a0a0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
+}
