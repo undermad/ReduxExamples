@@ -32,7 +32,10 @@ const AddPostForm = () => {
             return;
         }
 
-        dispatch(postAdded({title, content, userId}));
+        const timestamp = new Date().getTime();
+        const reactions =  [{like: 0, name: 'likes'}, {like: 0, name: 'coffee'}]
+        
+        dispatch(postAdded({title, content, userId, timestamp, reactions}));
         setTitle('');
         setContent('');
     }

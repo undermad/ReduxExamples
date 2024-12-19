@@ -1,34 +1,6 @@
 import {createSlice, nanoid, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../../State.ts";
-
-export interface Post {
-    id: string,
-    title: string,
-    content: string,
-}
-
-interface PostsState {
-    posts: Post[];
-}
-
-export interface PostAddedAction {
-    title: string,
-    content: string,
-    userId: string
-}
-
-
-const initialState: PostsState = {
-    posts: [{
-        id: nanoid(),
-        title: "Welcome to React with Redux",
-        content: "In this guide we will learn how to write scalable react application using react.",
-    }, {
-        id: nanoid(),
-        title: "Welcam to Redux",
-        content: "In this post we will look closer at redux nad its core technologies."
-    }]
-};
+import {initialState, Post, PostAddedAction, ReactionAddedAction} from "./PostTypes.ts";
 
 const postsSlice = createSlice({
     name: 'posts',
@@ -42,10 +14,19 @@ const postsSlice = createSlice({
                 return {
                     payload: {
                         id: nanoid(),
-                        title: action.title,
-                        content: action.content
+                        ...action,
                     }
                 }
+            }
+        },
+        reactionAdded(state, action: PayloadAction<ReactionAddedAction>) {
+            const existingPost = state.posts.find(post => post.id === action.payload.postId);
+            if (!existingPost) {
+                return;
+            }
+            const reaction = existingPost.reactions.find(reaction => reaction.name === action.payload.reactionName);
+            if (reaction) {
+                reaction.like++;
             }
         }
 
@@ -54,7 +35,7 @@ const postsSlice = createSlice({
 
 export const selectAllPosts = (state: RootState) => state.posts;
 
-export const {postAdded} = postsSlice.actions;
+export const {postAdded, reactionAdded} = postsSlice.actions;
 
 export default postsSlice.reducer;
 
