@@ -7,7 +7,7 @@ import PostExcerpt from "./PostExcerpt.tsx";
 
 export const PostList = () => {
     const dispatch = useDispatch<AppDispatch>();
-
+    
     const posts = useSelector(selectAllPosts);
 
     const postsStatus = useSelector(getPostsStatus);
@@ -31,7 +31,6 @@ export const PostList = () => {
     }
 
     return <section>
-        <h2>Posts</h2>
         {content}
     </section>
 }

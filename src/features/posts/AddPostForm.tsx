@@ -6,7 +6,7 @@ import {selectAllUsers} from "../users/UsersSlice.ts";
 const AddPostForm = () => {
 
     const [title, setTitle] = useState<string>('');
-    const [content, setContent] = useState<string>('');
+    const [body, setBody] = useState<string>('');
     const [userId, setUserId] = useState<string>('');
 
     const users = useSelector(selectAllUsers);
@@ -18,26 +18,27 @@ const AddPostForm = () => {
     }
 
     const onContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setContent(e.target.value);
+        setBody(e.target.value);
     }
 
     const onAuthorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setUserId(e.target.value);
     }
 
-    const canSave = () => Boolean(title) && Boolean(content) && Boolean(userId);
+    const canSave = () => Boolean(title) && Boolean(body) && Boolean(userId);
 
     const onSavePostClicked = () => {
-        if (!title || !content) {
+        if (!title || !body) {
             return;
         }
 
         const timestamp = new Date().getTime();
         const reactions =  [{like: 0, name: 'likes'}, {like: 0, name: 'coffee'}]
         
-        dispatch(postAdded({title, content, userId, timestamp, reactions}));
+        
+        dispatch(postAdded({title, body, userId, timestamp, reactions}));
         setTitle('');
-        setContent('');
+        setBody('');
     }
 
     const userOptions = users.users.map(user => {
@@ -62,7 +63,7 @@ const AddPostForm = () => {
             </select>
 
             <label htmlFor={"postContent"}>Content: </label>
-            <textarea value={content}
+            <textarea value={body}
                       id={'postContent'}
                       name={'postContent'}
                       onChange={onContentChange}/>
