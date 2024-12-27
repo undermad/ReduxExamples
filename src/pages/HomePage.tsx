@@ -1,4 +1,7 @@
 import Dialog from "./ui/Dialog.tsx";
+import LoginButton from "../auth/LoginButton.tsx";
+import LogoutButton from "../auth/LogoutButton.tsx";
+import Profile from "../auth/Profile.tsx";
 
 
 const HomePage = () => {
@@ -16,6 +19,12 @@ const HomePage = () => {
     }
     
     return <>
+        
+        <LoginButton/>
+        <LogoutButton/>
+        <Profile/>
+        
+        
         <Dialog triggerText={triggerText}
                 okCallback={okCallback}
                 cancelCallback={cancelCallback}

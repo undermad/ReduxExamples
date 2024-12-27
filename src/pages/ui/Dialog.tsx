@@ -6,7 +6,6 @@ import {
     AlertDialogTrigger
 } from "@radix-ui/react-alert-dialog";
 
-import Button from "../components/Button.tsx";
 
 type DialogProps = {
     okCallback?: () => void,
@@ -38,20 +37,8 @@ const Dialog = (props: DialogProps) => {
                         {props.description}
                     </AlertDialogDescription>
                     <div className="flex flex-col sm:flex-row justify-end gap-4">
-                        <AlertDialogCancel >
-                            <button
-                                onClick={() => props.cancelCallback && props.cancelCallback()}
-                                className="px-4 py-2 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded">
-                                {props.cancelText || "Cancel"}
-                            </button>
-                        </AlertDialogCancel>
-                        <AlertDialogAction >
-                            <Button
-                                variant={"secondary"}
-                                onClick={() => props.okCallback && props.okCallback()}>
-                                {props.okText || "OK"}
-                            </Button>
-                        </AlertDialogAction>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction>Ok</AlertDialogAction>
                     </div>
                 </AlertDialogContent>
             </AlertDialogPortal>
