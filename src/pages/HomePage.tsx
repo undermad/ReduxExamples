@@ -1,7 +1,8 @@
 import Dialog from "./ui/Dialog.tsx";
 import LoginButton from "../auth/LoginButton.tsx";
 import LogoutButton from "../auth/LogoutButton.tsx";
-import Profile from "../auth/Profile.tsx";
+import Button from "./components/Button.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 const HomePage = () => {
@@ -9,6 +10,9 @@ const HomePage = () => {
     const triggerText = "Trigger the button";
     const titleText = "Welcome to reusable components";
     const description = "This component is very flexible, you can use it in various situation";
+    
+    const navigate = useNavigate();
+    
     
     const okCallback = () => {
         console.log("Ok Callback passed through props");
@@ -22,7 +26,10 @@ const HomePage = () => {
         
         <LoginButton/>
         <LogoutButton/>
-        <Profile/>
+        
+        <Button variant={'primary'} onClick={() => navigate("/profile")}>
+            Profile
+        </Button>
         
         
         <Dialog triggerText={triggerText}

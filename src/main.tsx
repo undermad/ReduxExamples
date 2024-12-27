@@ -15,7 +15,9 @@ createRoot(document.getElementById('root')!).render(
         domain={import.meta.env.VITE_OKTA_DOMAIN}
         clientId={import.meta.env.VITE_OKTA_CLIENT_ID}
         authorizationParams={{
-            redirect_uri: window.location.origin
+            redirect_uri: window.location.origin,
+            audience: `https://${import.meta.env.VITE_OKTA_DOMAIN}/api/v2/`,
+            scope: "read:current_user update:current_user_metadata"
         }}
     >
 
